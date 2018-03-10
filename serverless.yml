@@ -69,9 +69,12 @@ functions:
     handler: handler.ola
     events:
       - http:
-          path: ola/kmusta
+          path: ola
           method: get
           cors: true
+          authorizer: authorizerFunc
+  authorizerFunc:
+    handler: auth.authorize
 
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events
