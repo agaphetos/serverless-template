@@ -17,6 +17,9 @@ service: refreshed
 # Check out our docs for more details
 # frameworkVersion: "=X.X.X"
 
+plugins:
+  - serverless-webpack
+
 provider:
   name: aws
   runtime: nodejs6.10
@@ -58,6 +61,12 @@ custom:
 #    - exclude-me-dir/**
 
 functions:
+  helloEcma:
+    handler: ecmascript.hello
+    events:
+      - http:
+          path: hello-es6
+          method: get
   hello:
     handler: handler.hello
     events:
