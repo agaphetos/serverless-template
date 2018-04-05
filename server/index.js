@@ -10,6 +10,10 @@ app.use(bodyParser.json());
 
 let PORT = process.env.PORT || 8080;
 
+app.get('/signin', (req, res) => {
+  res.sendFile(__dirname + '/index.html');
+});
+
 app.get('/hello', (req, res) => {
   sequelize
     .query('SELECT * FROM books', { raw: true })
